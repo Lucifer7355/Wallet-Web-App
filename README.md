@@ -1,5 +1,6 @@
 # Wallet-Web-App
-
+# High Level Design of application
+![Credit/Debit Wallet Application HLD](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Details/credit_debit_wallet_HLD.jpg)
 # Demonstration images Backend :
 Accessing Public end point without authentication or authorization
 ![Accessing Public end point without authentication or authorization](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/Public%20End%20Point.png)
