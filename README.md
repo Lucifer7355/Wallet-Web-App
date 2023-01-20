@@ -182,6 +182,6 @@ user must be authenticated and make a request with authorization header enabled 
 ```
 Before running frontend, install all the node packages by running "npm i" without the quotes. It will detect all the required packages from package-lock.json and package.json and install the required packages into a folder which is created automatically after installation of modules, namely node_modules.
 ```
-- Run the Front End on port 3000.
+- Now run the Front End on port 3000 by hitting "npm start" command without quotes.
 - Cors are enabled at the sever for the http://localhost:3000/ hence there wont be any issue calling rest apis after authentication off-course :).
 - Note that for any new user a new wallet account created will have 0 rupees balance.
