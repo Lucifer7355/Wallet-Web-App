@@ -1,0 +1,35 @@
+POST ---> http://localhost:5018/api/account/create ----> create Account object;
+
+POST ---> http://localhost:5018/api/account/createAll ----> create list of Account object;
+
+GET ----> http://localhost:5018/api/account/all ---> find all accounts;
+
+POST ---> http://localhost:5018/api/account/sendmoney ----> TransferBalanceRequest
+
+POST ----> http://localhost:5018/api/account/statement ----> AccountStatementRequest
+
+POST ----> http://localhost:5018/api/account/addmoney ----> add some money to your account
+
+POST ----> http://localhost:5018/api/account/withdrawmoney ----> withdraw some money from your account
+
+
+Testing : ---> http://localhost:5018/api/test/all : -----> To access public content without any authentication.
+
+Signup : ---> http://localhost:5018/api/auth/signup
+Signup request : ->
+{
+ "username" : "Ankit",
+ "email" : "ankitviddya@gmail.com",
+  "password" : "Ankit@1234"
+}
+
+Login request : ---> http://localhost:5018/api/auth/signin
+{
+"username" : "Ankit",
+"password" : "Ankit@1234"
+}
+
+
+
+
+

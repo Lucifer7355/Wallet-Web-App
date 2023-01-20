@@ -1,0 +1,1 @@
+INSERT INTO banking_system.roles (name) VALUES ('ROLE_USER'),('ROLE_MODERATOR'),('ROLE_ADMIN');

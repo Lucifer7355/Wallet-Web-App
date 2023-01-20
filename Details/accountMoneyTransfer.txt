@@ -1,0 +1,8 @@
+{
+"fromAccountNumber" : "Zontrax",
+"toAccountNumber" : "Viva",
+"amount" : "200"
+}
+
+
+

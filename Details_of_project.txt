@@ -1,0 +1,124 @@
+Credit/Debit Wallet Application:
+
+Backend(SpringBoot) :
+1. Number of Models which i created are 4.
+- Account,Role,Transaction,User.
+- Account model has following properties : {accountId,accountNumber,currentBalance}. Its for keeping track of wallet account holders.
+- Role model has two properties : {id,name(which can be only of enum type ROLE_ADMIN,ROLE_MODERATOR,ROLE_USER)}
+- Transaction model has following properties : {transactionId,accountNumber,transactionAmount,transactionDateTime,transactiontype}. It is created to keep track of debit/credit and one account to another account transaction.
+- User model has following properties : {id,username,email,password,roles}. Used for authentication and creation of user.
+- The models User and Role are associated with Spring Security which is used to enable JWT authentication and securing controller end points.
+- ERole is an ENUM for the 3 roles available in the database, namely {ROLE_ADMIN,ROLE_MODERATOR,ROLE_USER}. They have to be prepopulated after running the backend so that a new user can be created.
+- To populate the Role Schema just run this command after running database :  INSERT INTO banking_system.roles (name) VALUES ('ROLE_USER'),('ROLE_MODERATOR'),('ROLE_ADMIN');
+
+2. Number of repositories are 4.
+- AccountRepository has a method which finds the Account by its accountNumber from the DB;
+- RoleRepository has a method which returns Role based on the role Enum asked from the DB.
+- TransactionRepository has a method which finds all the accounts with an accountnumber from DB.
+- UserRepository has three methods which will find User by its name,check if a username exists and check if an email exists in the DB.
+
+3. POJO (Plain Old Java Object) : 
+- There are two types of pojo in the project.
+a) Request POJOS : 
+	- AccountStatementRequest has attribute {accountNumber};
+	- CreditRequest has attributes {accountNumber,currentBalance}.
+	- DebitRequest has attributes {accountNumber,currentBalance}.
+ 	- LoginRequest has attributes {username(cannot be blank), password(cannot be blank)}.
+	- SignupRequest has attributes {username(cannot be blank,can have size minimum=3 and maximum 20),email(cannot be blank,can have size of at max 50),role,password(cannot be blank,can have size minimum=6 and maximum 40)}.
+	- TransferBalanceRequest has attributes {fromAccountNumber,toAccountNumber,amount}.
+	- AccountStatement POJO which has attributes {currentBalance,transactionHistory}.
+
+b) Response POJOS :
+	- JwtResponse has attributes {token,type(which is fixed "Bearer "),id,username,email,roles}.
+	- MessageResponse has attributes {message}.
+	- Response has attributes {status,payload,errors,metadata}.
+	- ResponseError has attributes {timestamp,message,details}.
+
+4. Available Services are 3 : 
+- AccountServiceImpl : It has methods implemented to ->
+	- save an account object.
+	- find all list of accounts available.
+	- find accountby accountnumber.
+	- sending money from one account to another.
+	- getting transaction statements for a given account number.
+	- crediting some amount of money in an account.
+	- Debiting some amount of money in an account.
+	- save a list of account objects in the DB.
+	- find the balance for a given account number.
+- UserDetailsImpl : It has methods implemented to ->
+	- build user object by using builder design pattern and things related to spring auth.
+- UserDetailsServiceImpl : It has methods implemented to -> 
+	- To load user by its username and return UserDetails object using builder pattern. If the user does not exists then it throws User not found exception.
+
+5. JWT authentication related classes : 
+- JwtUtils class has methods for generating, validating and getting username from the JWT token.
+- AuthTokenFilter class has methods for parsing JWT authorization header and extracting JWT token and setting user authentication, which dispatches further dispatches request to other filters. 
+
+6. It has 3 controllers namely :
+
+- AccountController : which has follwing end points defined---> 
+
+POST ---> http://localhost:5018/api/account/create ----> create Account object and store in DB;
+
+POST ---> http://localhost:5018/api/account/createAll ----> store list of account objects into DB which are being passed;
+
+GET ----> http://localhost:5018/api/account/all ---> find all accounts;
+
+POST ---> http://localhost:5018/api/account/sendmoney ----> TransferBalanceRequest;
+
+POST ----> http://localhost:5018/api/account/statement ----> AccountStatementRequest;
+
+POST ----> http://localhost:5018/api/account/addmoney ----> add some money to your account;
+
+POST ----> http://localhost:5018/api/account/withdrawmoney ----> withdraw some money from your account;
+
+- TestController has following end points defined.
+
+GET ---> http://localhost:5018/api/test/all : -----> To access "Public Content" string without any authentication.
+GET ---> http://localhost:5018/api/test/user : ----> To access "User Content" string having role "USER", "MODERATOR", "ADMIN".
+GET ---> http://localhost:5018/api/test/mod : ----> To access "Moderator Board" string having role "MODERATOR".
+GET ---> http://localhost:5018/api/test/admin : ----> To access "Admin Board" string having role "ADMIN".
+
+
+Signup : ---> POST ----> http://localhost:5018/api/auth/signup ---> For creating a new account having role only "USER" by default.
+
+Signup request : ->
+{
+ "username" : "Ankit",
+ "email" : "ankitviddya@gmail.com",
+  "password" : "Ankit@1234"
+}
+
+Login request : ---> POST ----> http://localhost:5018/api/auth/signin ---> For signin and returning JWT token which can be used for authorization purposes.
+{
+"username" : "Ankit",
+"password" : "Ankit@1234"
+}
+
+
+7. WebSecurityConfig class is there for enabling spring security for the REST end points. It has methods defined for using our deined Authentication filter,BCRYPT password 
+encoder and the filter chain. The filter chain configured in this class enables everyone to access "/api/auth/**",/api/test/**, end points. But to access further end points, 
+user must be authenticated and make a request with authorization header enabled having "Bearer JWTtoken". 
+
+#############  Further Details about DB configuration, JWT expiration time and private secret key stored at server can be changed as per requirements. #######################
+
+FrontEnd :------> 
+
+1. I have created a React js Front-End to consume the created RESt api and display an end user friendly Wallet web application.
+2. It has components made for CreditMoney page,DashBoard Page,DebitMoney,Login,Navbar,Register, and Transaction page.
+3. App.js has routes configured for various page requests and security enabled.
+4. The required dependencies are mentioned into package.json which can be installed by just hitting "npm i" after cloning frontend part.
+
+
+Steps to Run : 
+- Just run the Backend Server on port 5018.
+- Run the Front End on port 3000.
+- Cors are enabled at the sever for the http://localhost:3000/ hence there wont be any issue calling rest apis after authentication off-course :).
+
+
+
+
+
+
+
+	- 

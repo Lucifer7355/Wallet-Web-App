@@ -1,0 +1,23 @@
+[
+    {
+        "accountId": 1,
+        "accountNumber": "Zontrax",
+        "currentBalance": 646787.71
+    },
+    {
+        "accountId": 2,
+        "accountNumber": "Stringtough",
+        "currentBalance": 448342.82
+    },
+    {
+        "accountId": 3,
+        "accountNumber": "Viva",
+        "currentBalance": 608588.70
+    },
+    {
+        "accountId": 4,
+        "accountNumber": "Holdlamis",
+        "currentBalance": 291544.00
+    }
+]
+
