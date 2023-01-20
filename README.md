@@ -59,7 +59,7 @@ Transaction details for current account-2
 
 # Details about the backend and frontend
 
-## Backend(SpringBoot) :
+## Backend(SpringBoot) :------> 
 1. Number of Models which i created are 4.
 - Account,Role,Transaction,User.
 - Account model has following properties : {accountId,accountNumber,currentBalance}. Its for keeping track of wallet account holders.
