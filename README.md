@@ -1,5 +1,61 @@
 # Wallet-Web-App
 
+# Demonstration images Backend :
+Accessing Public end point without authentication or authorization
+![Accessing Public end point without authentication or authorization](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/Public%20End%20Point.png)
+Register new user 
+![Register new user](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/Register_new_user.png)
+Login that user
+![Login that user](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/Login_that_user.png)
+Create list of accounts using auth token in header-1
+![Create list of accounts using auth token in header-1](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/create_list_of_accounts1.png)
+Create list of accounts using auth token in header-2
+![Create list of accounts using auth token in header-2](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/create_list_of_accounts2.png)
+Create single account-1
+![Create single account-1](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/create_single_account1.png)
+Create single account-2
+![Create single account-2](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/create_single_account2.png)
+Add money-1
+![Add money-1](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/addmoney1.png)
+Add money-2
+![Add money-2](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/addmoney2.png)
+Withdraw money
+![Withdraw money](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/withdrawmoney.png)
+Transaction from one account to another-1
+![Transaction from one account to another-1](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/Transfermoney1.png)
+Transaction from one account to another-2
+![Transaction from one account to another-2](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/Transfermoney2.png)
+Fetch all the available accounts-1
+![Fetch all the available accounts-1](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/Fetch_all_available_accounts1.png)
+Fetch all the available accounts-2
+![Fetch all the available accounts-2](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/Fetch_all_available_accounts2.png)
+
+# Demonstration images Frontend :
+Register an account
+![Register an account](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/Register%20an%20account.png)
+Login page-1
+![Login page-1](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/LoginPage1.png)
+Login page-2
+![Login page-2](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/LoginPage2.png)
+Application Dashboard
+![Application Dashboard](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/Dashboard.png)
+Check Current balance
+![Check Current balance](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/CheckCurrentBalance.png)
+Credit 7 rupees
+![Credit 7 rupees](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/CreditMoney.png)
+After credit money left in account
+![After credit money left in account](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/AfterCreditMoney.png)
+Debit 7 rupees
+![Debit 7 rupees](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/DebitMoney.png)
+After debit money left in account
+![After debit money left in account](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/CurrentBalanceAfterDebit.png)
+
+Transaction details for current account-1
+![Transaction details for current account-1](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/Transactions1.png)
+
+Transaction details for current account-2
+![Transaction details for current account-2](https://github.com/Lucifer7355/Wallet-Web-App/blob/main/Demonstration_images/Transactions2.png)
+
 # Details about the backend and frontend
 
 ## Backend(SpringBoot) :
@@ -123,3 +179,4 @@ user must be authenticated and make a request with authorization header enabled 
 - Just run the Backend Server on port 5018.
 - Run the Front End on port 3000.
 - Cors are enabled at the sever for the http://localhost:3000/ hence there wont be any issue calling rest apis after authentication off-course :).
+- Note that for any new user a new wallet account created will have 0 rupees balance.
